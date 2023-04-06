@@ -12,13 +12,15 @@ import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  //
+  // AuthContext에서 currentUser 가져오기
   const { currentUser } = useContext(AuthContext);
 
+  //로그인 안되어있으면 로그인 페이지로 이동
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
+    return children;
   };
 
   console.log("cur", currentUser);

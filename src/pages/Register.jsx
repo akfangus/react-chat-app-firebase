@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [displayName, setDisplayName] = useState("");
@@ -53,6 +53,7 @@ export default function Register() {
             });
             // userChats에 저장하는 함수
             await setDoc(doc(db, "userChats", res.user.uid), {});
+            alert("회원가입이 완료되었습니다.");
             navigate("/");
           });
         }
@@ -101,7 +102,9 @@ export default function Register() {
           <button>SignUp</button>
           {err && <span>Something went wrong</span>}
         </form>
-        <p>you do have an account? Login</p>
+        <p>
+          you do have an account?<Link to="/login">Login</Link>{" "}
+        </p>
       </div>
     </div>
   );

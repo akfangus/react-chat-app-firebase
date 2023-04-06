@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlineVideoCamera, AiOutlineUserAdd } from "react-icons/ai";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { Messages } from "./Messages";
 import { Input } from "./Input";
+import { ChatContext } from "../context/ChatContext";
 
 export default function Chat() {
+  const { data } = useContext(ChatContext);
+  console.log(data);
   return (
     <div className="chat">
       <div className="chatInfo">
-        <span>Jane</span>
+        <span>{data.user?.displayName}</span>
         <div className="chatIcons">
           <AiOutlineVideoCamera size={"24px"} className="img" />
           <AiOutlineUserAdd size={"24px"} className="img" />
