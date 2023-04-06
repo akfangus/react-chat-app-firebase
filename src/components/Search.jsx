@@ -38,11 +38,9 @@ export const Search = () => {
 
   const handelKey = (e) => {
     if (e.key === "Enter") {
-      console.log("kety");
       handleSearch();
     }
   };
-  console.log(user);
   const handleSelect = async () => {
     //combinID는 두 유저의 uid를 합친 값이다.
     //합친 값이 같다면 같은 채팅방이다.
@@ -54,7 +52,6 @@ export const Search = () => {
       //채팅방이 있는지 확인한다.
       const res = await getDoc(doc(db, "chats", combinedId));
       if (!res.exists()) {
-        console.log("앖ㅇ,ㅡㅁ");
         //컬렉션에 채팅방이 없다면 새로 생성한다.
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
@@ -82,11 +79,8 @@ export const Search = () => {
           //firebase의 timestamp를 사용한다.
           [combinedId + ".date"]: serverTimestamp(),
         });
-        console.log("upate2완료");
       }
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
 
     setUser(null);
     setUsername("");

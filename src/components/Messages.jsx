@@ -10,7 +10,6 @@ export const Messages = () => {
 
   useEffect(() => {
     const unsub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
-      console.log("여기?");
       doc.exists() && setMessages(doc.data().messages);
     });
 
@@ -19,7 +18,6 @@ export const Messages = () => {
     };
   }, [data.chatId]);
 
-  console.log(messages);
   return (
     <div className="messages">
       {messages.map((m) => (

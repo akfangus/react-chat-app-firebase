@@ -21,7 +21,6 @@ export const Input = () => {
   const { data } = useContext(ChatContext);
 
   const handleSend = async () => {
-    console.log("click!");
     if (img) {
       const storageRef = ref(storage, uuid());
       // 파일을 업로드하고 업로드 작업을 시작합니다.

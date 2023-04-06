@@ -18,10 +18,8 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("여기옴");
 
     try {
-      console.log("시작");
       const res = await createUserWithEmailAndPassword(auth, email, password);
       // 이미지 파일의 경로를 설정합니다.
       const storageRef = ref(storage, displayName);
@@ -35,7 +33,6 @@ export default function Register() {
       uploadTask.on(
         (error) => {
           setErr(true);
-          console.log("first", err);
         },
         () => {
           // 업로드가 성공적으로 완료된 경우 다운로드 URL을 가져옵니다.
@@ -60,7 +57,6 @@ export default function Register() {
       );
     } catch (err) {
       setErr(true);
-      console.log("second", err);
     }
   };
 

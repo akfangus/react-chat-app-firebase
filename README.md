@@ -43,5 +43,5 @@ height="35px"/>
 
 # 🐐 구현 화면
 
-<img src="./public/jhon.png" width="500px" height="300px">
-<img src="./public/adam.png" width="500px" height="300px">
+<img src="./public/jhon.png" width="700px" height="500px">
+<img src="./public/adam.png" width="700px" height="500px">

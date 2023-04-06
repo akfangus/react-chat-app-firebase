@@ -23,7 +23,6 @@ function App() {
     return children;
   };
 
-  console.log("cur", currentUser);
   return (
     <Router>
       <Routes>

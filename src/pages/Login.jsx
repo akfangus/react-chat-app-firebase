@@ -12,7 +12,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("여기옴");
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -20,7 +19,6 @@ export default function Login() {
       navigate("/");
     } catch (err) {
       setErr(true);
-      console.log("second", err);
     }
   };
 

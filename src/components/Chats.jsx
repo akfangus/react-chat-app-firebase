@@ -25,7 +25,6 @@ export default function Chats() {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  console.log(Object.entries(chats));
   const handleSelect = (user) => {
     dispatch({ type: "CHANGE_USER", payload: user });
   };
